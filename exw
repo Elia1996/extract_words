@@ -1,0 +1,2 @@
+#!/bin/bash
+cat dict.txt | awk '$0~/^[a-z]+\s*\{/' | awk -F'}' '{print $1"}" }' | awk -F'{' '{print $1" "$2 }' | tr "}" " " | tr -s " " | cut -d " " -f 1,2 > dict_list.txt
